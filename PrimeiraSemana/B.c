@@ -1,3 +1,4 @@
+// EIGHT QUEENS //
 #include <stdio.h>
 #include <math.h>
 
