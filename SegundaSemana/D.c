@@ -15,14 +15,26 @@ int buscar(int vetor[],int local, int valor,int tam){
 }
 
 int main(void){
-    int n,m,i,pos,valor;
-    scanf("%d %d",&n,&m);
-    int vetor[n];
-    for(i=0;i<n;i++){
-        scanf("%d",&vetor[i]);
+    int n,m,i=0,pos,valor,x,teste=1,tamanho;
+    int vetor[100001];
+    int vetorPrint[100001];
+    while (scanf("%d %d", &n, &m) != EOF){
+        i++;
+        if(teste!=0){
+            for(i=0;i<n;i++){
+                scanf("%d",&vetor[i]);
+                teste=0;
+                tamanho=n;
+            }
+            i=0;
+        }
+        if(i!=0){
+            vetorPrint[i-1]=buscar(vetor,n,m,tamanho);
+        }
     }
-    for(i=0;i<m;i++){
-        scanf("%d %d",&pos,&valor);
-        printf("%d\n",buscar(vetor,pos,valor,n));
+   for(i=0;i<4;i++){
+        printf("%d\n",vetorPrint[i]);
     }
+
+    return 0;
 }

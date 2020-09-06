@@ -2,7 +2,7 @@
 #include <string.h>
 
 int main (void){
-    int tmp=0,i,j,qtd=0,tam;
+    int tmp=0,i,qtd=0,tam;
     char string[101];
     int soma[101]={0};
     
@@ -10,8 +10,8 @@ int main (void){
        if(!strcmp(string,"0")){
            break;
        }
-       length = strlen(s);
-  for(i = 0, j = length-1; i < length; i++, j--){
+       
+       for(i=strlen(string)-1;i>=0;i--){
            if((soma[i]+(string[i]-'0')+tmp)>=10){
                 soma[i]=(soma[i]+(string[i]-'0')+tmp)%10;
                tmp=(soma[i]+(string[i]-'0')+tmp)/10;
