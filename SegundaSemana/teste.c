@@ -10,9 +10,10 @@ int main (void){
        if(!strcmp(string,"0")){
            break;
        }
-       length = strlen(s);
-  for(i = 0, j = length-1; i < length; i++, j--){
-           if((soma[i]+(string[i]-'0')+tmp)>=10){
+       tam = strlen(string);
+  for(i = 0, j = tam-1; i < tam; i++, j--){
+      soma[i]=(string[i]-'0')+soma[i];
+        if((soma[i]>=10){
                 soma[i]=(soma[i]+(string[i]-'0')+tmp)%10;
                tmp=(soma[i]+(string[i]-'0')+tmp)/10;
            }else{
