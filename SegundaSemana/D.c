@@ -17,8 +17,8 @@ int buscar(int vetor[],int local, int valor,int tam){
 int main(void){
     int n,m,i,pos,valor;
     scanf("%d %d",&n,&m);
-    int vetor[n];
-    int vetorPrint[m];
+    int vetor[10000001];
+    int vetorPrint[10000001];
     for(i=0;i<n;i++){
         scanf("%d",&vetor[i]);
     }
@@ -30,8 +30,8 @@ int main(void){
     for(i=0;i<m;i++){
         printf("%d\n",vetorPrint[i]);
     }
+    
 
-    printf("\n");
 
     return 0;
 }
