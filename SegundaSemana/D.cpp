@@ -1,35 +1,24 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
-#include <fstream>
+#include <map>
 
 using namespace std;
 
-int buscar(vector <int> &vetor,int local, int valor){
-    int i,qtd=0;
-    for(i=0;i<vetor.size();i++){
-        if(vetor[i]==valor){
-            qtd++;
-        }
-        if(vetor[i]==valor && qtd==local){
-            return i+1;
-        }
-    }
-    return 0;
-}
-
 int main(){
-    int a,b,i,valor,l,k;
-    vector <int> vetor;
+    int a,b,i,valor,l,k,tmp;
+    map <int,vector<int>> vetor;
     while (cin >> a >> b){
         for(i=0;i<a;i++){
             cin >> valor;
-            vetor.push_back(valor);
+            vetor[valor].push_back(i);
         }
         for(i=0;i<b;i++){
             cin>> l >> k;
-            if(l<0)
-
+            if(!vetor.count(k) || vetor[k].size()<l){
+                cout << 0<<endl;
+            }else{
+                cout <<vetor[k][l-1]+1<<endl;
+            } 
         }
     }
 }

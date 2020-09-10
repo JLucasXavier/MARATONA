@@ -39,6 +39,12 @@
         "vector": "cpp",
         "algorithm": "cpp",
         "cctype": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "fstream": "cpp",
+        "set": "cpp",
+        "xtree": "cpp",
+        "map": "cpp",
+        "unordered_set": "cpp",
+        "xhash": "cpp"
     }
 }
