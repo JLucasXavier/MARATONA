@@ -6,7 +6,6 @@
 using namespace std;
 
 int busca(vector <string> &telefone,string nova){
-    int resposta;
         int j=telefone.back().size();
         if(j>nova.size()){
             if(nova.compare(telefone.back().substr(0,nova.size()))==0){
@@ -26,9 +25,9 @@ int busca(vector <string> &telefone,string nova){
 int main(){
     int i,j,casos,qtd,sera[42];
     char tmp[50];
-    vector<string> telefone;
     cin >> casos;
     for(i=0;i<casos;i++){
+        vector<string> telefone;
         cin >> qtd;
         for(j=0;j<qtd;j++){
             cin >> tmp;
@@ -45,6 +44,9 @@ int main(){
             }else if(j==qtd-2){
                 cout<<"YES"<<endl;
             }
+        }
+        if(qtd==1){
+            cout<<"YES"<<endl;
         }
     }
     return 0;
