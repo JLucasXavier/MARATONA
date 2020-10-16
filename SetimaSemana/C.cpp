@@ -1,41 +1,32 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <climits> 
 
 using namespace std;
 
-int corteFita(vector<int>&vetor,int tam){
-    vector<int>::iterator it=max_element(vetor.begin(),vetor.end());
-    if(tam==*it){
-        vetor.erase(it);
-        vector<int>::iterator it=max_element(vetor.begin(),vetor.end());
+int a,b,c;
+int dinamico[4001];
+int resolve(int n){
+    if(n == 0){
+        return 0;
     }
-    int valor=tam-*it;
-    int c=1;
-    it=find(vetor.begin(),vetor.end(),valor);
-    if(it!=vetor.end()){
-        c++;
+    if(n<0){
+        return INT_MIN;
+    }
+    if(dinamico[n] != -1){
+        return dinamico[n];
     }else{
-        for(int i=0;valor!=0;i++){
-            if(valor%vetor[i]==0){
-                c=c+valor/vetor[i];
-                valor=valor-(valor/vetor[i])*vetor[i];
-            }
-        }
+        dinamico[n] = max(1+resolve(n-a),max(1+resolve(n-b),1+resolve(n-c)));
+        return dinamico[n];
     }
-    return c;
 }
-
 int main(){
-    ios::sync_with_stdio(false); 
-    cin.tie(nullptr);
-    int tmp,fitaOri;
-    vector<int>fita;
-    for(int i=0;i<4;i++){
-        cin>>tmp;
-        fita.push_back(tmp);
+    int n,x;
+    cin>>n>>a>>b>>c;
+    for(int i=0;i<4001;++i){
+        dinamico[i] = -1;
     }
-    fitaOri=fita[0];
-    fita.erase(fita.begin());
-    cout<<corteFita(fita,fitaOri)<<endl;
+    x = resolve(n);
+    cout<<x<<endl;
 }
