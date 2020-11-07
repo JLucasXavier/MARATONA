@@ -7,18 +7,21 @@ using namespace std;
 int main(){
     ios::sync_with_stdio(false); 
     cin.tie(nullptr);
-    int number,price,i,days,coins;
-    vector<int>shops;
-    cin >> number;
-    for(i=0;i<number;i++){
-        cin >> price;
-        shops.push_back(price);
+    int vetor[10],valor,pos,cont=0;
+    vetor[0] = 1;
+    cin>>valor;
+    for (int i=1;i<=9;i++) {
+        vetor[i] = i*vetor[i-1];
     }
-    sort(shops.begin(),shops.end());
-    cin >> days;
-    for(i=0;i<days;i++){
-        cin>>coins;
-        auto x=upper_bound(shops.begin(),shops.end(),coins);
-        cout <<x-shops.begin()<<endl;
+    for(int i=1;i<=9;i++){
+        if(vetor[i]>valor){
+            pos=i;
+            break;
+        }
     }
+    for(int i=pos-1;valor>0;i--){
+        valor=valor-vetor[i];
+        cont++;
+    }
+    cout<<cont<<endl;
 }
