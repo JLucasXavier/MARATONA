@@ -22,7 +22,7 @@ struct aluno{
 };
 
 typedef struct aluno Aluno;
-
+//teste
 int main(){
     //Aluno* tabela[10];
     Aluno** tabela = (Aluno**)malloc(sizeof(Aluno*)*10);
