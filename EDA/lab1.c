@@ -15,6 +15,7 @@ int comprimento(char* s){
     }
 }
 
+typedef struct aluno Aluno;
 struct aluno{
     int matricula;
     char nome[81];
@@ -37,15 +38,25 @@ void preenche(int n, Aluno** tab, int i,int matricula, char nome[],char endereco
     if(tab[i]==NULL){
         tab[i] = (Aluno*)malloc(sizeof(Aluno));
         tab[i]->matricula = matricula;
-        strcpy()
+        strcpy(tab[i]->nome,nome);
+        strcpy(tab[i]->endereco,endereco);
+        strcpy(tab[i]->telefone,telefone);
     }
 }
 
-typedef struct aluno Aluno;
-//teste
 int main(){
     Aluno* tabela[10];
     //Aluno** tabela = (Aluno**)malloc(sizeof(Aluno*)*10);
-    printf("A matricula  %d",tabela[0]->matricula);
-    
+    inicializa(10, tabela);
+    preenche(10,tabela,0,1,"Marcelo","Leblon","38756651");
+    preenche(10,tabela,1,2,"Gustavo","Copacabana","22451250");
+    for(int i=0;i<2;i++){
+        printf("%d\n",tabela[i]->matricula);
+        imprime(tabela[i]->nome);
+        printf("\n");
+        imprime(tabela[i]->endereco);
+        printf("\n");
+        imprime(tabela[i]->telefone);
+        printf("\n");
+    }
 }
