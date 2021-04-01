@@ -50,7 +50,7 @@ int main(){
     inicializa(10, tabela);
     preenche(10,tabela,0,1,"Marcelo","Leblon","38756651");
     preenche(10,tabela,1,2,"Gustavo","Copacabana","22451250");
-    for(int i=0;i<2;i++){
+    for(int i=0;tabela[i]!=NULL;i++){
         printf("%d\n",tabela[i]->matricula);
         imprime(tabela[i]->nome);
         printf("\n");
