@@ -1,13 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-typedef struct aluno Aluno;
-struct aluno{
-    int matricula;
-    char nome[81];
-    char endereco[121];
-    char telefone[21];
-};
+#include <string.h>
+#include <lab2.h>
 
 void inicializa(int n, Aluno** tab){
     int i;
@@ -54,8 +48,11 @@ void atualiza(int n, Aluno** tab, int i,int matricula, char nome[],char endereco
     }
 }
 
-
-
-int main(){
-    Aluno* tabela[10];
+int busca_linear(int n, Aluno** tab, char nome[]){
+    for(int i=0;i<n;i++){
+        if(strcmp(nome,tab[i]->nome)==0){
+            return i;
+        }
+    }
+    return -1;
 }
